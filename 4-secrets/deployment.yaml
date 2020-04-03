@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kitty
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: kitty
+  template:
+    metadata:
+      labels:
+        app: kitty
+    spec:
+      containers:
+        - name: webserver
+          image: christianmoesl/rancher-kubernetes-workshop:1.2.0
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          env:
+            - name: PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: credentials
+                  key: password

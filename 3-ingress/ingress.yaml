@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: kitty
+  annotations:
+    external-dns.alpha.kubernetes.io/hostname: christianmoesl.sbg.emundo.eu
+spec:
+  tls:
+    - hosts:
+      - christianmoesl.sbg.emundo.eu
+  rules:
+    - host: christianmoesl.sbg.emundo.eu
+      http:
+        paths:
+        - path: /
+          backend:
+            serviceName: kitty
+            servicePort: 80
