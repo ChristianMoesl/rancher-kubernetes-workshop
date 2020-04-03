@@ -31,6 +31,6 @@ $ rk set image deployment kitty webserver=christianmoesl/rancher-kubernetes-work
 $ rk rollout status deployment kitty
 
 # Testen ob Anwendung funktioniert:
-$ rk port-forward server/kitty 8080:80
+$ rk port-forward service/kitty 8080:80
 ```
 

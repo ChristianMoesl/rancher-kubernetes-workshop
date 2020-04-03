@@ -34,7 +34,7 @@ Danach muss der der Container unter `localhost:8080` erreichbar sein und sollte 
 ## 4.Teil: Fehlende Datei in Container kopieren
 ```
 # Bild in Container kopieren
-$ rk cp kitty.jpg christianmoesl/kitty:/var/www/html/kitty.jpg
+$ rk cp kitty.jpg kitty:/var/www/html/kitty.jpg
 
 # Zur Sicherheit nachsehen ob es auch an der richtigen Stelle gelandet ist
 $ rk exec -it kitty -- ls /var/www/html 
